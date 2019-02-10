@@ -1,0 +1,24 @@
+// ATOMS/JSX/BUTTON STYLES
+
+%btn-dark
+  +set-bkg-color-and-hover($dark)
+
+  color: $light
+
+%btn-light
+  +set-bkg-color-and-hover($light)
+
+%btn-accent
+  +set-bkg-color-and-hover($accent)
+
+  color: $light
+
+.ada-button
+  border-radius: 50%
+  height: px-to-em(40)
+  font-size: px-to-em(12)
+  padding: px-to-em(18) px-to-em(18)
+  width: px-to-em(40)
+
+  &.accent
+    @extend %btn-accent

@@ -1,0 +1,67 @@
+# Netlify CMS Configuration
+# Reference: https://www.netlifycms.org/docs/add-to-your-site/
+
+meta: | 
+   Netlify CMS Configuration
+
+backend:
+  name: git-gateway
+  branch: master
+
+show_preview_links: false
+
+publish_mode: editorial_workflow
+
+media_folder: "build/static/media"
+public_folder: "build/static/media"
+
+collections:
+  - name: "sections"
+    label: "Section" 
+    folder: "public/story" 
+    preview_path: "story/{{slug}}"
+    editor:
+      preview: false
+    create: true 
+    slug: "story/{{slug}}"
+    extension: "json"
+    format: "json"
+    fields:
+      - label: "Title"
+        name: "title"
+        widget: "string"
+        pattern: ['.{1,}', "Must have at least 1 character"]
+      - label: "Section Order"
+        name: "order"
+        widget: "number"
+        valueType: "int"
+        min: 1
+      - label: "Cover Image"
+        name: "thumbnail"
+        widget: "image"
+      - label: "Body"
+        name: "body"
+        widget: "markdown"
+      - label: "Images"
+        name: "images"
+        widget: "list"
+        required: false
+        allow_add: true
+        fields:
+          - label: "Gallery Image"
+            name: "image"
+            widget: "image"
+          - label: "Caption"
+            name: "caption"
+            pattern: ['.{1,}', "Must have at least 1 character"]
+            widget: "string"
+            default: "Cras lacinia consequat sapien, et facilisis est
+                venenatis et. Praesent elementum scelerisque metus at suscipit.
+                Maecenas purus diam, malesuada a tincidunt vitae, egestas vitae
+                eros. Aliquam et sem at libero auctor sagittis sit amet a
+                justo." 
+          - label: "Source"
+            name: "source"
+            pattern: ['.{1,}', "Must have at least 1 character"]
+            widget: "string"
+            default: "The Diamondback"

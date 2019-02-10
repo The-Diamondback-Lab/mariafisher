@@ -1,0 +1,127 @@
+/* FONTS */
+@import url(https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,500,500i,600,600i,700,700i);
+/* GENERAL STYLES - BASE/COMMON */
+* {
+  transition: all 0.25s ease 0s; }
+
+*,
+html {
+  box-sizing: border-box; }
+
+::-webkit-scrollbar {
+  display: none; }
+
+html {
+  overflow-x: hidden; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, Helvetica, Helvetica Neue;
+  margin: 0;
+  overflow-x: hidden; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700; }
+
+a:hover, a:active, a:focus,
+button:hover,
+button:active,
+button:focus {
+  cursor: pointer;
+  font-weight: 600; }
+
+a {
+  text-decoration: none; }
+  a.active {
+    font-weight: 600; }
+
+ul {
+  margin: 0;
+  padding: 0; }
+
+li {
+  list-style: none; }
+
+button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  padding: 0; }
+
+input {
+  background-color: transparent;
+  border: none;
+  font-size: 0.9375em;
+  outline: none;
+  padding: 0; }
+
+/* HELPER CLASSES - BASE/HELPERS */
+.ada-container {
+  margin: 0 auto;
+  max-width: 90%;
+  width: 100%; }
+
+.ada-page {
+  padding: 2.5em 0; }
+  .ada-page > .ada-container .ada-heading {
+    font-size: 1.5em;
+    margin: 0; }
+
+.ada-button.accent {
+  background-color: #E51D37;
+  color: #F4F4F4; }
+  .ada-button.accent:hover {
+    background-color: #d11830; }
+
+.ada-button {
+  border-radius: 50%;
+  height: 2.5em;
+  font-size: 0.75em;
+  padding: 1.125em 1.125em;
+  width: 2.5em; }
+
+.ada-heading {
+  font-size: 2em;
+  margin: 1.25em 0 0 0; }
+  @media all and (max-width: 61.25em) {
+    .ada-heading {
+      font-size: 1.5em; } }
+
+.ada-text {
+  font-size: 1em; }
+  @media all and (max-width: 48em) {
+    .ada-text {
+      font-size: 0.875em; } }
+
+.adm-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; }
+  .adm-loading > .ada-icon {
+    font-size: 1.625em; }
+  .adm-loading > .ada-text {
+    font-size: 1em;
+    font-weight: 500;
+    text-align: center; }
+
+.adm-navigation {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between; }
+  @media all and (max-width: 48em) {
+    .adm-navigation {
+      margin-top: 0.3125em; } }
+
+.adp-index {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  height: 100vh; }
+
+#app.index {
+  background-image: url("../assets/images/ada-image-landing.svg");
+  background-position: center 80%;
+  background-repeat: no-repeat;
+  background-size: cover; }

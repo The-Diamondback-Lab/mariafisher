@@ -1,0 +1,54 @@
+/* GENERAL STYLES - BASE/COMMON
+
+*
+  +transition
+
+*,
+html
+  box-sizing: border-box
+
+\::-webkit-scrollbar
+  display: none
+
+html
+  overflow-x: hidden
+
+body
+  font-family: $font-stack
+  margin: 0
+  overflow-x: hidden
+
+h1, h2, h3, h4, h5, h6
+  font-weight: 700
+
+a,
+button
+  +hocus
+    cursor: pointer
+    font-weight: 600
+
+a
+  text-decoration: none
+
+  &.active
+    font-weight: 600
+
+ul
+  margin: 0
+  padding: 0
+
+li
+  list-style: none
+
+button
+  background-color: transparent
+  border: none
+  outline: none
+  padding: 0
+
+input
+  background-color: transparent
+  border: none
+  font-size: px-to-em(15)
+  outline: none
+  padding: 0

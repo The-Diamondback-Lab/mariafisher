@@ -1,0 +1,49 @@
+{
+  "hosting": {
+    "public": "build",
+    "predeploy": [
+      "npm run build"
+    ],
+    "redirects": [
+      {
+        "source": "/twitter",
+        "destination": "https://twitter.com/thedbk",
+        "type": 301
+      },
+      {
+        "source": "/facebook",
+        "destination": "https://www.facebook.com/TheDiamondback/",
+        "type": 301
+      },
+      {
+        "source": "/online",
+        "destination": "http://www.dbknews.com/",
+        "type": 301
+      }
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ],
+    "headers": [
+      {
+        "source": "build/static",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "max-age=31536000"
+          }
+        ]
+      }
+    ],
+    "cleanUrls": true,
+    "trailingSlash": false,
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}

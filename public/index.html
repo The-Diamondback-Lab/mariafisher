@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1,
+    shrink-to-fit=no" />
+  <meta name="description"
+    content="Dan Fisher was admittedly a bit skeptical of his daughter Maria’s dream to open a performing arts high school after she graduated from the University of Maryland. But in the year since her death, Fisher has taken his daughter’s dream into his own hands. In mid-February, the Fishers will open The Avenue Guest House and Gallery in Lititz, Pennsylvania, a bed and breakfast that  will double as a performance venue for local artists. Since the family purchased it in September, it’s become something of a sanctuary for them, particularly as the investigation into Maria’s death has yielded more questions than answers. On Oct. 1, 2017, just after 6 a.m., Maria Fisher a first semester freshman, was struck and killed by a car as she ran across Route 1. But, all these months later, her loved ones aren’t sure where she was running from." />
+
+  <!-- favicon -->
+  <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
+
+  <!-- manifest -->
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
+  <!-- netlify authentication -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+  <!-- font awesome -->
+  <script defer src="https://pro.fontawesome.com/releases/v5.2.0/js/all.js"
+    integrity="sha384-yBZ34R8uZDBb7pIwm+whKmsCiRDZXCW1vPPn/3Gz0xm4E95frfRNrOmAUfGbSGqN" crossorigin="anonymous">
+    </script>
+
+  <!-- animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+  <title>Fisher: 1 Year Later</title>
+</head>
+
+<body id="app">
+  <!-- no script warning -->
+  <noscript>
+    You need to enable JavaScript to run this app.
+  </noscript>
+
+  <!-- 
+    when a user logs in with the Netlify Identity widget, an access token directs to the site homepage 
+  -->
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", user => {
+        if (!user) {
+          window.netlifyIdentity.on("login", () => {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
+</body>
+
+</html>

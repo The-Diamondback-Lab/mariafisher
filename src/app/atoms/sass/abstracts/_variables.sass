@@ -1,0 +1,53 @@
+// GLOBAL SASS VARIABLES
+
+$dark: #000
+
+$grey: #B9B9B9
+
+$light: #F4F4F4
+
+/// accennt color map
+$accent: #E51D37
+
+$font-stack: -apple-system, BlinkMacSystemFont, Helvetica, Helvetica Neue
+
+$code-font-stack: Courier New, DejaVu Sans Mono, Bitstream Vera Sans Mono, Monaco, monospace !default
+
+$max-width: 90% !default
+
+$shadow: px-to-em(0) px-to-em(4) px-to-em(6) px-to-em(0) rgba(#000, 0.1)
+
+// paths
+/// url where all assets are served from
+/// @type string
+$base-url: '../assets/'
+
+// breakpoints
+/// xsmall breakpoint
+/// @type length
+$breakpoint-xsmall: 320px
+
+/// small breakpoint
+/// @type length
+$breakpoint-small: 480px
+
+/// medium breakpoint
+/// @type length
+$breakpoint-schmedium: 768px
+
+/// second medium breakpoint
+/// @type length
+$breakpoint-medium: 980px
+
+/// large breakpoint
+/// @type length
+$breakpoint-large: 1200px
+
+/// xlarge breakpoint
+/// @type length
+$breakpoint-xlarge: 1440px
+
+/// breakpoints map
+/// @prop {string} keys - identifiers mapped to a given length
+/// @prop {Map} values - actual breakpoints expressed in ems
+$breakpoints: ('xsmall': $breakpoint-xsmall, 'small': $breakpoint-small, 'schmedium': $breakpoint-schmedium, 'medium': $breakpoint-medium, 'large': $breakpoint-large, 'xlarge': $breakpoint-xlarge)
