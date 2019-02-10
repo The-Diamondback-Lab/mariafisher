@@ -106,7 +106,7 @@ their respective files. Make sure to label your pull request "help wanted."**
 4. Update the development branch with the fresh code from master.
 5. Delete the old hotfix and release branches.
 
-**Quick Production Deploys**
+**Quick Production Deploys**  
 If you don't need or want to follow a production workflow, follow these
 instructions.
 1. Update `firebase.json` to configure Firebase Hosting, and push the changes
