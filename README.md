@@ -63,9 +63,10 @@ code you write. It will be reviewed by a reviewer during your code review, and
 your pull request will be denied if any code is improperly documeted.
 
 #### Development
-Run `npm run dev` in your terminal and make your changes. This will watch your
-`*.js(x)` and `*.sass` files. As you develop, Create React App will
-automatically reload and deploy your changes locally.
+1. In your project directory, run the command  `git checkout development`.
+2. Run `npm run dev` and make your changes. This will watch your `*.js(x)` and
+   `*.sass` files. As you develop, Create React App will automatically reload
+   and deploy your changes locally.
 
 **If react-scripts fails to run the development server with the error "custom
 keyword definition is invalid: data.errors should be boolean", please reference
