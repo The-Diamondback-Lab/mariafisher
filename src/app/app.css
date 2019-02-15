@@ -66,19 +66,6 @@ input {
     font-size: 1.5em;
     margin: 0; }
 
-.ada-button.accent {
-  background-color: #E51D37;
-  color: #F4F4F4; }
-  .ada-button.accent:hover {
-    background-color: #d11830; }
-
-.ada-button {
-  border-radius: 50%;
-  height: 2.5em;
-  font-size: 0.75em;
-  padding: 1.125em 1.125em;
-  width: 2.5em; }
-
 .ada-heading {
   font-size: 2em;
   margin: 1.25em 0 0 0; }
@@ -113,15 +100,40 @@ input {
     .adm-navigation {
       margin-top: 0.3125em; } }
 
+#lightbox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  opacity: 0;
+  position: fixed;
+  width: 100vw;
+  z-index: -1; }
+  #lightbox.open {
+    background-color: rgba(0, 0, 0, 0.25);
+    opacity: 1;
+    z-index: 15; }
+
+.ado-lightbox {
+  height: auto;
+  padding: 0;
+  width: 95%; }
+  .ado-lightbox > .ada-container {
+    height: 100%; }
+
+.lightbox-footer {
+  padding: 0.625em 0;
+  width: 100vw; }
+  .lightbox-footer > .ada-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between; }
+
 .adp-index {
   display: flex;
   flex-direction: row;
   align-items: stretch;
   justify-content: flex-start;
   height: 100vh; }
-
-#app.index {
-  background-image: url("../assets/images/ada-image-landing.svg");
-  background-position: center 80%;
-  background-repeat: no-repeat;
-  background-size: cover; }

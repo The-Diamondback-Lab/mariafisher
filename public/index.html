@@ -14,9 +14,6 @@
   <!-- manifest -->
   <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
 
-  <!-- netlify authentication -->
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-
   <!-- font awesome -->
   <script defer src="https://pro.fontawesome.com/releases/v5.2.0/js/all.js"
     integrity="sha384-yBZ34R8uZDBb7pIwm+whKmsCiRDZXCW1vPPn/3Gz0xm4E95frfRNrOmAUfGbSGqN" crossorigin="anonymous">
@@ -28,26 +25,15 @@
   <title>Fisher: 1 Year Later</title>
 </head>
 
-<body id="app">
+<body>
   <!-- no script warning -->
   <noscript>
     You need to enable JavaScript to run this app.
   </noscript>
 
-  <!-- 
-    when a user logs in with the Netlify Identity widget, an access token directs to the site homepage 
-  -->
-  <script>
-    if (window.netlifyIdentity) {
-      window.netlifyIdentity.on("init", user => {
-        if (!user) {
-          window.netlifyIdentity.on("login", () => {
-            document.location.href = "/admin/";
-          });
-        }
-      });
-    }
-  </script>
+  <!-- content will be populated by js -->
+  <div id="lightbox"></div>
+  <div id="app"></div>
 </body>
 
 </html>

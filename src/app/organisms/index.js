@@ -2,8 +2,9 @@
  * JSX Organisms directory
  */
 
-import Header from './jsx/Header.jsx';
+import Footer from './jsx/Footer.jsx';
+import Lightbox from './jsx/Lightbox.jsx';
 
 export {
-  Header
+  Footer, Lightbox
 };

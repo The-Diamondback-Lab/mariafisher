@@ -1,5 +1,14 @@
 {
-  "projects": {
-    "default": "fisher-one-year-later"
+  "targets": {
+    "fisher1yearlater": {
+      "hosting": {
+        "staging": [
+          "staging-fisher1yearlater"
+        ],
+        "production": [
+          "fisher1yearlater"
+        ]
+      }
+    }
   }
 }

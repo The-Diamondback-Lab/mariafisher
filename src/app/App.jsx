@@ -1,40 +1,39 @@
 // packages
 import * as React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import Analytics from 'react-router-ga';
+import { Route } from 'react-router-dom';
 
 // config
-import { PRODUCTION } from '../config/constants.config';
+import { WINDOW_PATH } from '../config/constants.config';
 import { ROUTES_ARR } from '../config/routes.config';
+
+// atoms
+import { Router } from './atoms';
 
 // style
 import './app.css';
 
 export default class App extends React.Component {
-  componentDidMount() {
-    /*
-     * if a user tries to access /admin with the hostname netlify,
-     * redirect to the 404 page
-     */
-    if (PRODUCTION) window.location.href = '/404';
+  async componentDidMount() {
+    let valid_path = true
+    let paths = ROUTES_ARR.map(route => route.path)
+
+    if (WINDOW_PATH !== '404' && !paths.includes(WINDOW_PATH)) {
+      window.location.href = '/404.html'
+    }
   }
 
   render() {
     return (
-      <BrowserRouter>
-        <Analytics id={process.env.REACT_APP_GOOGLE_ANALYTICS_ID} debug>
-          <Switch>
-            {ROUTES_ARR.map((route, i) => (
-              <Route
-                exact={i === 0} path={route.path} key={`route-${i}`}
-                render={props =>
-                  <route.component {...props} {...route} />
-                }
-              />
-            ))}
-          </Switch>
-        </Analytics>
-      </BrowserRouter>
-    );
+      <Router>
+        {ROUTES_ARR.map((route, i) => (
+          <Route
+            exact={i === 0} path={route.path} key={`route-${i}`}
+            render={props =>
+              <route.component {...props} {...route} />
+            }
+          />
+        ))}
+      </Router>
+    )
   }
 }

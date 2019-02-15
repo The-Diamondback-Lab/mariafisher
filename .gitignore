@@ -22,8 +22,7 @@ node_modules/
 # Firebase
 .firebase/
 
-# Because of custom keyword error with webpack,
-# we will NOT be ignoring build files
-# build/
+# Build files
+build/
 
 # End of https://www.gitignore.io/api/node

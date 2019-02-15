@@ -1,5 +1,4 @@
 // packages
-import axios from 'axios';
 import URI from 'urijs';
 
 /**
@@ -10,7 +9,6 @@ import URI from 'urijs';
  */
 
 //  singletons
-const AXIOS_INSTANCE = axios.create();
 const LOCAL_STORAGE = window.localStorage;
 const WINDOW_LOCATION = window.location.href;
 const WINDOW_PATH = URI.parse(WINDOW_LOCATION).path;
@@ -37,5 +35,5 @@ const BREAKPOINTS = {
 const LANDING_IMAGE_URL = 'https://firebasestorage.googleapis.com/v0/b/terpbase.appspot.com/o/assets%2Fimages%2Flanding.jpg?alt=media&token=e9dc68c0-370d-4119-816e-e749b3d7bfd7';
 
 export {
-  AXIOS_INSTANCE, LOCAL_STORAGE, WINDOW_LOCATION, WINDOW_PATH, PRODUCTION, ROOT, BREAKPOINTS, LANDING_IMAGE_URL
+  LOCAL_STORAGE, WINDOW_LOCATION, WINDOW_PATH, PRODUCTION, ROOT, BREAKPOINTS, LANDING_IMAGE_URL
 };

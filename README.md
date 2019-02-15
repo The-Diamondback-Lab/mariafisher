@@ -1,16 +1,17 @@
 # Diamondback Lab Special Project - Fisher: 1 Year Later
 
-[![js-semistandard-style](https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg?style=flat-square)](https://github.com/Flet/semistandard)
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 
 ##### Overview
 [What is Fisher: 1 Year Later?](#what-is-fisher-1-year-later)  
 [Getting Started](#getting-started)  
-[Documentation](#documentation)  
 [Development](#development)  
 [Testing](#testing)  
 [Deployment](#deployment)  
+[References](#references)  
 [Built With](#built-with)
+
 
 #### What is Fisher: 1 Year Later?
 Dan Fisher was admittedly a bit skeptical of his daughter Maria’s dream to open
@@ -34,10 +35,17 @@ later, her loved ones aren’t sure where she was running from.
 
 
 #### Getting Started
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+These instructions will get you a copy of the project up and running on your
+local machine for development and testing purposes. See deployment for notes on
+how to deploy the project on a live system.
 
 ### Prerequisites
-**Install Node and Git:**  Download Node [here](https://nodejs.org/en/download/), and Git [here](https://git-scm.com/downloads)
+1. [Install Node](https://nodejs.org/en/download/)
+2. [Install Git](https://git-scm.com/downloads)
+3. Install Firebase command line tools using npm:
+    ```
+    npm install -g firebase-tools
+    ```  
 
 ### Installing
 Follow the steps below to get your development enviroment set up.
@@ -45,7 +53,7 @@ Follow the steps below to get your development enviroment set up.
 1.  Pull the repo. Open the terminal and and run the following:
 
     ```
-    git clone https://github.com/The-Diamondback-Lab/fisher-one-year-later.git
+    git clone https://github.com/The-Diamondback-Lab/fisher1yearlater.git
     ```
 
 2.  After cloning the repo, open the project. Run the following command:
@@ -54,75 +62,86 @@ Follow the steps below to get your development enviroment set up.
     npm install
     ```
 
-   in the terminal. This will install the necessary dependencies for the
-   project. A list of those dependencies can be found in `package.json`.
+      in the terminal. This will install the necessary dependencies for the
+      project. A list of those dependencies can be found in `package.json`.
 
-#### Documentation
+
+#### Development
+Run `npm run dev` to begin making changes. This will watch your `*.js(x)` and
+`*.sass` files. As you develop, Create React App will automatically reload and
+deploy your changes locally.
+- **Note:** If react-scripts fails to run the development server with the error
+  "custom keyword definition is invalid: data.errors should be boolean", please
+  reference [this link][1].
+
+
+##### Documentation
 Following [JSDoc](http://usejsdoc.org/) standards, be sure to document any functions, classes, and other
 code you write. It will be reviewed by a reviewer during your code review, and
 your pull request will be denied if any code is improperly documeted.
 
-#### Development
-1. In your project directory, run the command  `git checkout development`.
-2. Run `npm run dev` and make your changes. This will watch your `*.js(x)` and
-   `*.sass` files. As you develop, Create React App will automatically reload
-   and deploy your changes locally.
+For an overview of our JavaScript style guide, go to https://standardjs.com.
 
-**If react-scripts fails to run the development server with the error "custom
-keyword definition is invalid: data.errors should be boolean", please reference
-[this link](https://github.com/webpack/webpack/issues/8768#issuecomment-462090327).**
 
 #### Testing
-When you're ready to test your changes, run `npm run stage` in your project
+When you're ready to test your changes, run `npm test` in your project
 directory. This will build the project and run your tests, as well as all the tests in the `__tests__` directory.  
 
 A production build of the application can be served locally in two ways:
-1. Run `npm run serve-staging` in the project directory. This will build the
-   project and serve it locally, independent of the current Firebase configuration.
-2. Run `npm run serve-production` in the project directory. This will build the project and
-   create a local Firebase environment for your project. Use this option to test
-   the hosting rules with the current build.
+1. Run `npm run serve-staging` in the project directory. This will serve the
+   `public` folder with the Firebase Hosting settings for the staging site.
+2. Run `npm run serve-production` in the project directory. This will build the
+   project and serve the `build` folder with the Firebase Hosting settings for
+   the production site.
 
 **Note: Before creating a new branch and creating a pull request for your
-changes, your build must pass all the tests. If you need help, please create a
+changes, your build must pass all the tests and must work locally with the
+Firebase staging instance. If you need help, please create a
 test file and leave a comment in the test body, making note of any issues in
 their respective files. Make sure to label your pull request "help wanted."**
 
+If you're ready to have your changes reviewed, make sure your code is well
+documented, and create a branch for your changes. Make sure to name the branch
+appropriately, prefixing it with feature-, issue-, hotfix-, or release-. To
+do this, run the following in your terminal:  
+1. `git checkout -b <BRANCH_NAME> development`
+2. `git commit -am "<DESCRIPTIVE_COMMIT_MESSAGE>"`
+3. `git push`
+4. `git checkout development`
+
+If you need to make additional changes, checkout your branch again, and then
+commit and push your changes.
+
 #### Deployment
-**Staging**
-1. Commit your changes and create a pull request. A preview of your changes will
-   be available using [Netlify's Deploy Previews][1].
-2. A reviewer will test your changes. If accepted, your changes will be merged
-   into the development branch and the current release branch.
+1. Update `firebase.json` to configure Firebase Hosting, and push the changes to a
+release branch, if necessary. 
+  - **Note:** The predeploy and rewrites properties are not mandatory for
+   Firebase, but they are mandatory for this project. 
+2. To set up the Firebase targets, run the following in your terminal:
+    1. `firebase target:apply hosting staging staging-fisher1yearlater`
+    2. `firebase target:apply hosting production fisher1yearlater`
 
-**Production**
-1. Update `firebase.json` to configure Firebase Hosting, and push the changes
-   to a hotfix branch, if necessary.  
-   **Note:** The predeploy and rewrites properties are not mandatory for
-   Firebase, but they are mandatory for this project.  
-2. Merge the hotfix branch into the development and release branches.
-3. Merge the release branch into master. Travis CI will deploy the `build`
-   folder to Firebase.
-4. Update the development branch with the fresh code from master.
-5. Delete the old hotfix and release branches.
+**Staging**  
+Deploy using one of the following options:
+- Run `npm run deploy-staging` in your terminal to deploy to Firebase.
+- Run `firebase deploy -m "<YOUR_MESSAGE>" --only hosting:staging` to deploy to
+  Firebase Hosting with an optional deploy message.
 
-**Quick Production Deploys**  
-If you don't need or want to follow a production workflow, follow these
-instructions.
-1. Update `firebase.json` to configure Firebase Hosting, and push the changes
-   to a hotfix branch, if necessary.  
-   **Note:** The predeploy and rewrites properties are not mandatory for
-   Firebase, but they are mandatory for this project.  
-2. Deploy using one of the following options:
-   - Run `npm run deploy` in your terminal to deploy to Firebase. The predeploy
-     hook defined in `firebase.json` will create a production build of the
-     project and deploy the default Firebase project. 
-   - Run `firebase deploy -m "<YOUR_MESSAGE>" --only hosting` to deploy to
-     Firebase Hosting with an optional deploy message.
+**Production**  
+Deploy using one of the following options:
+- Run `npm run deploy-production` in your terminal to deploy to Firebase. The
+  predeploy hook will create a production build of the project.
+- Run `firebase deploy -m "<YOUR_MESSAGE>" --only hosting:production` to deploy
+  to Firebase Hosting with an optional deploy message.
 
 
-#### Built With
+### References
+Helpful links referenced during development.
+- [/node-sass/vendor no such file or directory in node-sass@3.13.0][2]
+
+### Built With
 - [Create React App](https://github.com/facebook/create-react-app)
 - [Firebase](https://firebase.google.com/docs/web/setup)
 
-[1]: https://www.netlify.com/blog/2016/07/20/introducing-deploy-previews-in-netlify/?_ga=2.240121859.1458332513.1549763090-1097346967.1549120139
+[1]: https://github.com/webpack/webpack/issues/8768#issuecomment-462090327
+[2]: https://github.com/sass/node-sass/issues/1812#issuecomment-304219746

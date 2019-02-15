@@ -1,0 +1,30 @@
+// ORGANISMS/JSX/LIGHTBOX STYLES
+
+#lightbox
+  +flex(row, center, center)
+
+  height: 100vh
+  opacity: 0
+  position: fixed
+  width: 100vw
+  z-index: -1
+
+  &.open
+    background-color: rgba($dark, 0.25)
+    opacity: 1
+    z-index: 15
+
+.ado-lightbox
+  height: auto
+  padding: 0
+  width: 95%
+
+  > .ada-container
+    height: 100%
+
+.lightbox-footer
+  padding: px-to-em(10) 0
+  width: 100vw
+
+  > .ada-container
+    +flex(row, center, space-between)

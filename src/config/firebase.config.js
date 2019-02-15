@@ -1,5 +1,6 @@
 // packages
-import firebase from 'firebase/app';
+import * as firebase from 'firebase';
+import flamelink from 'flamelink';
 
 /**
  * Firebase configuration
@@ -22,4 +23,9 @@ if (!FIREBASE_APP) {
   throw new Error(message);
 }
 
-export { FIREBASE_APP };
+// create flamelink references
+const FLAMELINK_APP = flamelink({ FIREBASE_APP });
+const FLAMELINK_CONTENT = FLAMELINK_APP.content;
+const FLAMELINK_NAVIGATION = FLAMELINK_APP.nav;
+
+export { FIREBASE_APP, FLAMELINK_APP, FLAMELINK_CONTENT, FLAMELINK_NAVIGATION };
