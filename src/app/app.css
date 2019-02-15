@@ -15,6 +15,7 @@ html {
   overflow-x: hidden; }
 
 body {
+  color: #F4F4F4;
   font-family: -apple-system, BlinkMacSystemFont, Helvetica, Helvetica Neue;
   margin: 0;
   overflow-x: hidden; }
@@ -57,21 +58,25 @@ input {
 /* HELPER CLASSES - BASE/HELPERS */
 .ada-container {
   margin: 0 auto;
-  max-width: 90%;
+  max-width: 95%;
   width: 100%; }
 
-.ada-page {
-  padding: 2.5em 0; }
-  .ada-page > .ada-container .ada-heading {
-    font-size: 1.5em;
-    margin: 0; }
-
 .ada-heading {
-  font-size: 2em;
-  margin: 1.25em 0 0 0; }
-  @media all and (max-width: 61.25em) {
+  font-size: 2.25em;
+  margin: 0 0 0.3125em 0;
+  text-transform: uppercase; }
+  @media all and (max-width: 90em) {
+    .ada-heading {
+      font-size: 1.75em; } }
+  @media all and (max-width: 75em) {
     .ada-heading {
       font-size: 1.5em; } }
+  @media all and (max-width: 61.25em) {
+    .ada-heading {
+      font-size: 1.125em; } }
+  .ada-heading span {
+    color: #E51D37;
+    font-weight: 600; }
 
 .ada-text {
   font-size: 1em; }
@@ -131,9 +136,92 @@ input {
     align-items: center;
     justify-content: space-between; }
 
+.adt-section {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding-top: 1.875em;
+  width: 70%; }
+  @media all and (max-width: 90em) {
+    .adt-section {
+      width: 50%; } }
+  @media all and (max-width: 75em) {
+    .adt-section {
+      width: 60%; } }
+  @media all and (max-width: 61.25em) {
+    .adt-section {
+      width: 70%; } }
+  @media all and (max-width: 48em) {
+    .adt-section {
+      background-color: rgba(244, 244, 244, 0.25);
+      width: 100%; } }
+  .adt-section > .ada-container {
+    max-width: 92.5%; }
+
+#section01 .ada-heading {
+  font-weight: 300; }
+
 .adp-index {
   display: flex;
   flex-direction: row;
   align-items: stretch;
   justify-content: flex-start;
   height: 100vh; }
+
+#app {
+  height: 100vh;
+  padding: 2.5em 0;
+  width: 100vw; }
+  @media all and (max-width: 48em) {
+    #app {
+      background-color: #000;
+      background-image: none !important; } }
+  #app > .ada-container {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: flex-start;
+    height: 100%; }
+  #app.section01 {
+    background-image: url("../assets/images/section01.svg");
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover; }
+  #app.section02 {
+    background-image: url("../assets/images/section02.svg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover; }
+    #app.section02 > .ada-container {
+      justify-content: flex-end; }
+  #app.section03 {
+    background-image: url("../assets/images/section03.svg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover; }
+  #app.section04 {
+    background-image: url("../assets/images/section04.svg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover; }
+    #app.section04 > .ada-container {
+      justify-content: flex-end; }
+  #app.section05 {
+    background-image: url("../assets/images/section05.svg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover; }
+  #app.section06 {
+    background-image: url("../assets/images/section06.svg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover; }
+    #app.section06 > .ada-container {
+      justify-content: flex-end; }
+  #app.section07 {
+    background-image: url("../assets/images/section07.svg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover; }

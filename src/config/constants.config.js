@@ -1,5 +1,5 @@
 // packages
-import URI from 'urijs';
+import URI from 'urijs'
 
 /**
  * Application constants.
@@ -9,18 +9,17 @@ import URI from 'urijs';
  */
 
 //  singletons
-const LOCAL_STORAGE = window.localStorage;
-const WINDOW_LOCATION = window.location.href;
-const WINDOW_PATH = URI.parse(WINDOW_LOCATION).path;
-const PRODUCTION =
-  !WINDOW_LOCATION.includes('netlify') && WINDOW_PATH.includes('/admin');
+const LOCAL_STORAGE = window.localStorage
+const WINDOW_LOCATION = window.location.href
+const WINDOW_PATH = URI.parse(WINDOW_LOCATION).path
+const INTRODUCTION = WINDOW_PATH === '/' || WINDOW_PATH === '/i'
 
 // html elements
 const ROOT = {
   app: document.getElementById('app'),
   lightbox: document.getElementById('lightbox'),
   sidebar: document.getElementById('sidebar')
-};
+}
 
 // style
 const BREAKPOINTS = {
@@ -30,10 +29,10 @@ const BREAKPOINTS = {
   medium: 980,
   large: 1200,
   xlarge: 1440
-};
+}
 
-const LANDING_IMAGE_URL = 'https://firebasestorage.googleapis.com/v0/b/terpbase.appspot.com/o/assets%2Fimages%2Flanding.jpg?alt=media&token=e9dc68c0-370d-4119-816e-e749b3d7bfd7';
+const LANDING_IMAGE_URL = 'https://firebasestorage.googleapis.com/v0/b/terpbase.appspot.com/o/assets%2Fimages%2Flanding.jpg?alt=media&token=e9dc68c0-370d-4119-816e-e749b3d7bfd7'
 
 export {
-  LOCAL_STORAGE, WINDOW_LOCATION, WINDOW_PATH, PRODUCTION, ROOT, BREAKPOINTS, LANDING_IMAGE_URL
-};
+  LOCAL_STORAGE, WINDOW_LOCATION, WINDOW_PATH, INTRODUCTION, ROOT, BREAKPOINTS, LANDING_IMAGE_URL
+}

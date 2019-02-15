@@ -124,14 +124,14 @@ release branch, if necessary.
 **Staging**  
 Deploy using one of the following options:
 - Run `npm run deploy-staging` in your terminal to deploy to Firebase.
-- Run `firebase deploy -m "<YOUR_MESSAGE>" --only hosting:staging` to deploy to
+- Run `firebase deploy -m "<YOUR_MESSAGE>" --project fisher1yearlater --only hosting:staging` to deploy to
   Firebase Hosting with an optional deploy message.
 
 **Production**  
 Deploy using one of the following options:
 - Run `npm run deploy-production` in your terminal to deploy to Firebase. The
   predeploy hook will create a production build of the project.
-- Run `firebase deploy -m "<YOUR_MESSAGE>" --only hosting:production` to deploy
+- Run `firebase deploy -m "<YOUR_MESSAGE>" --project fisher1yearlater --only hosting:production` to deploy
   to Firebase Hosting with an optional deploy message.
 
 

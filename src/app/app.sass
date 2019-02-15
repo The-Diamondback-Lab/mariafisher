@@ -9,12 +9,33 @@
 @import pages/pages
 
 // app styles
+%right-aligned
+  +flex(row, flex-start, flex-end)
+
 #app
+  +respond-to(schmedium)
+    background:
+      color: $dark
+      image: none !important
+
+
+  height: 100vh
+  padding: px-to-em(40) 0
+  width: 100vw
+
+  > .ada-container
+    +flex(row)
+
+    height: 100%
+
   &.section01
-    +set-bkg-img('section01.svg')
+    +set-bkg-img('section01.svg', center top)
 
   &.section02
     +set-bkg-img('section02.svg')
+
+    > .ada-container
+      justify-content: flex-end
 
   &.section03
     +set-bkg-img('section03.svg')
@@ -22,11 +43,17 @@
   &.section04
     +set-bkg-img('section04.svg')
 
+    > .ada-container
+      justify-content: flex-end
+
   &.section05
     +set-bkg-img('section05.svg')
 
   &.section06
     +set-bkg-img('section06.svg')
 
-  &..section07
+    > .ada-container
+      justify-content: flex-end
+
+  &.section07
     +set-bkg-img('section07.svg')

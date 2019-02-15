@@ -19,9 +19,10 @@
     "build": "rm -rf build && npm-run-all build-css build-js",
     "test": "standard src/ --fix && react-scripts test",
     "stage": "npm run build && npm run test",
-    "serve-staging": "npm run build && serve -s build",
-    "serve-production": "npm run build && firebase serve --only hosting",
-    "deploy": "firebase deploy --only hosting",
+    "serve-staging": "npm run build && firebase serve --project fisher1yearlater --only hosting:staging",
+    "serve-production": "npm run build && firebase serve --project fisher1yearlater --only hosting:production",
+    "deploy-staging": "firebase deploy --project fisher1yearlater --only hosting:staging",
+    "deploy-production": "firebase deploy --project fisher1yearlater --only hosting:production",
     "eject": "react-scripts eject"
   },
   "dependencies": {

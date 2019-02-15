@@ -8,6 +8,11 @@
       ],
       "redirects": [
         {
+          "source": "/",
+          "destination": "/i",
+          "type": 301
+        },
+        {
           "source": "/twitter",
           "destination": "https://twitter.com/thedbk",
           "type": 301
@@ -20,6 +25,11 @@
         {
           "source": "/online",
           "destination": "http://www.dbknews.com/",
+          "type": 301
+        },
+        {
+          "source": "/404",
+          "destination": "/404.html",
           "type": 301
         }
       ],
@@ -38,6 +48,11 @@
       ],
       "redirects": [
         {
+          "source": "/",
+          "destination": "/i",
+          "type": 301
+        },
+        {
           "source": "/twitter",
           "destination": "https://twitter.com/thedbk",
           "type": 301
@@ -50,6 +65,11 @@
         {
           "source": "/online",
           "destination": "http://www.dbknews.com/",
+          "type": 301
+        },
+        {
+          "source": "/404",
+          "destination": "/404.html",
           "type": 301
         }
       ],

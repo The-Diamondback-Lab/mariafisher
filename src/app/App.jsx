@@ -12,27 +12,32 @@ import { Router } from './atoms';
 // style
 import './app.css';
 
+const { NODE_ENV } = process.env;
+
 export default class App extends React.Component {
   async componentDidMount() {
-    let valid_path = true
     let paths = ROUTES_ARR.map(route => route.path)
 
-    if (WINDOW_PATH !== '404' && !paths.includes(WINDOW_PATH)) {
-      window.location.href = '/404.html'
+    if (NODE_ENV === 'development' && WINDOW_PATH === '/') {
+      window.location.href = '/i'
+    } else if (WINDOW_PATH !== '404' && !paths.includes(WINDOW_PATH)) {
+      window.location.href = NODE_ENV === 'development' ? '/404.html' : '/404'
     }
   }
 
   render() {
     return (
       <Router>
-        {ROUTES_ARR.map((route, i) => (
-          <Route
-            exact={i === 0} path={route.path} key={`route-${i}`}
-            render={props =>
-              <route.component {...props} {...route} />
-            }
-          />
-        ))}
+        <div className="ada-container">
+          {ROUTES_ARR.map((route, i) => (
+            <Route
+              exact={i === 0} path={route.path} key={`route-${i}`}
+              render={props =>
+                <route.component {...props} {...route} />
+              }
+            />
+          ))}
+        </div>
       </Router>
     )
   }
