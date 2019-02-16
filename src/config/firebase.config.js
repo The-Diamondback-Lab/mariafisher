@@ -1,5 +1,5 @@
 // packages
-import * as firebase from 'firebase'
+import * as firebase from 'firebase/app'
 
 /**
  * Manages the Firebase configuration and resources for the project.
@@ -8,18 +8,19 @@ import * as firebase from 'firebase'
  * @author Lexus Drumgold <lex@lexusdrumgold.design>
  */
 
-const { REACT_APP_WEB_API_KEY } = process.env
-
-// intialize firebase appplication
-const FIREBASE_APP = firebase.initializeApp({
-  apiKey: REACT_APP_WEB_API_KEY
-})
-
-// if firebase app is null, throw error
-if (!FIREBASE_APP) {
-  let message = 'Unable to initalize Firebase'
-  console.error(message)
-  throw new Error(message)
+// not using .env to store firebase credentials because flamelink
+// throws an error when using process.env variables
+const FIREBASE_CONFIG = {
+  apiKey: 'AIzaSyCeP6oTMNEyOoB7MWD0xC18gvJQcKMlyQY',
+  authDomain: 'fisher1yearlater.firebaseapp.com',
+  databaseURL: 'https://fisher1yearlater.firebaseio.com',
+  projectId: 'fisher1yearlater'
 }
 
-export { FIREBASE_APP }
+// intialize firebase appplication
+const FIREBASE_APP = firebase.initializeApp(FIREBASE_CONFIG)
+
+// if firebase app is null, throw error
+if (!FIREBASE_APP) throw new Error('Unable to initalize Firebase')
+
+export { FIREBASE_CONFIG, FIREBASE_APP }

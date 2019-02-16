@@ -78,12 +78,6 @@ input {
     color: #E51D37;
     font-weight: 600; }
 
-.ada-text {
-  font-size: 1em; }
-  @media all and (max-width: 48em) {
-    .ada-text {
-      font-size: 0.875em; } }
-
 .adm-loading {
   display: flex;
   flex-direction: column;
@@ -98,6 +92,12 @@ input {
     font-weight: 400;
     text-align: center;
     text-transform: uppercase; }
+
+.ada-text {
+  font-size: 1em; }
+  @media all and (max-width: 48em) {
+    .ada-text {
+      font-size: 0.875em; } }
 
 .adm-navigation {
   display: flex;
@@ -165,13 +165,6 @@ input {
 
 #section01 .ada-heading {
   font-weight: 300; }
-
-.adp-index {
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
-  justify-content: flex-start;
-  height: 100vh; }
 
 #app {
   background-color: #E51D37;

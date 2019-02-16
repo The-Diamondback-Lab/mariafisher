@@ -1,5 +1,5 @@
 // packages
-import React from 'reactn'
+import * as React from 'react'
 import { BrowserRouter, Switch } from 'react-router-dom'
 import Analytics from 'react-router-ga'
 
@@ -20,16 +20,18 @@ const Router = props => {
   const { REACT_APP_GOOGLE_ANALYTICS_ID, NODE_ENV } = process.env
   const { children } = props
 
+  const ENVIRONMENTS = ['development', 'test']
+  const SWITCH = <Switch>{children}</Switch>
+
   return (
     <BrowserRouter>
-      <Analytics
-        id={REACT_APP_GOOGLE_ANALYTICS_ID}
-        debug={NODE_ENV === 'development'}
-      >
-        <Switch>
-          {children}
-        </Switch>
-      </Analytics>
+      {
+        ENVIRONMENTS.includes(NODE_ENV)
+          ? SWITCH
+          : <Analytics id={REACT_APP_GOOGLE_ANALYTICS_ID} debug>
+            {SWITCH}
+          </Analytics>
+      }
     </BrowserRouter>
   )
 }

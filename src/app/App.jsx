@@ -8,12 +8,10 @@ import $ from 'jquery'
 // modules
 import { WINDOW_PATH } from '../config/app.config'
 import { ROUTES_ARR } from '../config/routes.config'
+import { get_content } from '../utilities/flamelink.utilities'
 
 // atoms
-import { Router } from './atoms'
-
-// molecules
-import { Loading } from './molecules'
+import { RequestManager, Router } from './atoms'
 
 // style
 import './app.css'
@@ -36,15 +34,28 @@ export default class App extends React.Component {
    */
   componentDidMount = async () => {
     const { NODE_ENV } = process.env
+
     let paths = ROUTES_ARR.map(route => route.path)
 
+    // determine where to forward user
     if (NODE_ENV === 'development' && WINDOW_PATH === '/') {
       window.location.href = '/i'
     } else if (WINDOW_PATH !== '404' && !paths.includes(WINDOW_PATH)) {
       window.location.href = NODE_ENV === 'development' ? '/404.html' : '/404'
     }
 
-    setTimeout(() => this.handle_loading(), 2500)
+    // populate global state
+    let content = await get_content('section')
+
+    if (!content.ok) {
+      window.alert('Unable to retreive content.')
+      window.location.href = NODE_ENV === 'development' ? '/404.html' : '/404'
+    }
+
+    setGlobal({ content: content.data })
+
+    // update loading state
+    setTimeout(() => this.handle_loading(), 1500)
 
     return true
   }
@@ -70,23 +81,18 @@ export default class App extends React.Component {
   render = () => {
     const { requesting } = this.global
 
+    let component = (props, route) => <route.component {...props} {...route} />
+
     return (
       <Router>
-        <div className='ada-container'>
-          {/* show loading screen or routes */}
-          {
-            requesting
-              ? <Loading />
-              : ROUTES_ARR.map((route, i) => (
-                <Route
-                  exact={i === 0} path={route.path} key={`route-${i}`}
-                  render={props =>
-                    <route.component {...props} {...route} />
-                  }
-                />
-              ))
-          }
-        </div>
+        <RequestManager requesting={requesting}>
+          {ROUTES_ARR.map((route, i) => (
+            <Route
+              exact path={route.path} key={i}
+              render={props => component(props, route)}
+            />
+          ))}
+        </RequestManager>
       </Router>
     )
   }

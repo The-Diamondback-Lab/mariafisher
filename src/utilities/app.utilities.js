@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
 
-// packages
-import * as Joi from 'joi'
+// modules
+import { JOI } from '../config/app.config'
 
 /**
  * @file A set of utility functions for interacting with the application.
@@ -19,7 +19,7 @@ import * as Joi from 'joi'
  * @throws {Error} if error validating schema
  */
 export const validate_schema = (data, schema) => {
-  const { value, error } = Joi.validate(data, schema)
+  const { value, error } = JOI.validate(data, schema)
 
   if (error) throw error
 

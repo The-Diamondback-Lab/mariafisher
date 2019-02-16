@@ -1,5 +1,5 @@
 // packages
-import React from 'reactn'
+import * as React from 'react'
 
 /**
  * @file Functional React component representing the layout wrapper.

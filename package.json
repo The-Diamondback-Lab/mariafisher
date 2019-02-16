@@ -26,11 +26,11 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
-    "axios": "^0.18.0",
     "firebase": "^5.8.1",
+    "flamelink": "^0.19.12",
     "joi": "^14.3.1",
     "jquery": "^3.3.1",
-    "react": "^16.7.0",
+    "react": "^16.8.2",
     "react-dom": "^16.7.0",
     "react-router-dom": "^4.3.1",
     "react-router-ga": "^1.0.0",

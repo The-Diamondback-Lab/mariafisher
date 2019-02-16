@@ -1,5 +1,5 @@
-// packages
-import * as Joi from 'joi'
+// modules
+import { JOI } from '../config/app.config'
 
 /**
  * Response schema.
@@ -8,16 +8,16 @@ import * as Joi from 'joi'
  * @author Lexus Drumgold <lex@lexusdrumgold.design>
  */
 
-const ResponseMessage = Joi.string().min(1).required()
+const ResponseMessage = JOI.string().min(1).required()
 
-export const ErrorResponse = Joi.object().keys({
-  status: Joi.number()
+export const ErrorResponse = JOI.object().keys({
+  status: JOI.number()
     .valid(400, 401, 402, 403, 404, 405, 500, 501, 502).required(),
   message: ResponseMessage
 })
 
-export const SuccessResponse = Joi.object().keys({
-  status: Joi.number().valid(200, 201, 203, 204).required(),
+export const SuccessResponse = JOI.object().keys({
+  status: JOI.number().valid(200, 201, 203, 204).required(),
   message: ResponseMessage,
-  data: Joi.any().allow(null)
+  data: JOI.any().allow(null)
 })

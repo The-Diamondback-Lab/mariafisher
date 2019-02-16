@@ -1,8 +1,9 @@
 // packages
-import React from 'reactn'
+import * as React from 'react'
 
 // atoms
-import { Icon, Text } from '../../atoms'
+import Icon from './Icon.jsx'
+import Text from './Text.jsx'
 
 /**
  * @file Functional React component representing a div with a loading state.

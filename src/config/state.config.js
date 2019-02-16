@@ -11,7 +11,7 @@ import { addReducer } from 'reactn'
 
 // define initial state
 const INITIAL_STATE = {
-  content: null,
+  content: new Map(),
   navigation: null,
   mobile: false,
   requesting: true,

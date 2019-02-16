@@ -1,5 +1,5 @@
 // packages
-import React from 'reactn'
+import * as React from 'react'
 import { NavLink } from 'react-router-dom'
 
 // atoms

@@ -6,30 +6,39 @@ import $ from 'jquery'
 // modules
 import { ROOT } from '../../../config/app.config'
 
-// atoms
-import { Button, Heading, Icon, Text } from '../../atoms'
-
+/**
+ * Class representing a lightbox.
+ *
+ * @class Lightbox
+ * @hideconstructor
+ * @author Lexus Drumgold <lex@lexusdrumgold.design>
+ */
 export default class Lightbox extends React.Component {
-  close = e => {
+  /**
+   * Closes the lightbox.
+   *
+   * @returns {boolean} true if lightbox was closed
+   */
+  close = () => {
     $('#lightbox').removeClass('open')
     ReactDOM.unmountComponentAtNode(ROOT.lightbox)
+    return true
   }
 
-  render () {
-    const { image } = this.props
-    const { src, caption } = image
+  /**
+   * Renders the lightbox.
+   *
+   * @param {object} props - properties for the component
+   * @param {*} props.children - component children
+   * @returns {HTMLDivElement} html div element
+   */
+  render = props => {
+    const { children } = this.props
 
     return (
       <div className='ado-lightbox'>
         <div className='ada-container'>
-          <figure>
-            <img src={src} alt={caption} />
-            <figcaption />
-            <figcaption dangerouslySetInnerHTML={{ __html: caption }} />
-          </figure>
-        </div>
-        <div className='lightbox-footer'>
-          <div className='ada-container' />
+          {children}
         </div>
       </div>
     )
