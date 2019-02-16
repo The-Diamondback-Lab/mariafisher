@@ -1,20 +1,26 @@
 // packages
-import * as React from 'react';
+import React from 'reactn'
 
-export default class Layout extends React.Component {
-  componentDidMount() {
-    document.title = this.props.name;
-  }
+/**
+ * @file Functional React component representing the layout wrapper.
+ * @author Lexus Drumgold <lex@lexusdrumgold.design>
+ */
 
-  render() {
-    const { page, children } = this.props;
+/**
+ * Renders the page layout.
+ *
+ * @returns {HTMLDivElement} application component
+ */
+const Layout = () => {
+  const { page, children } = this.props
 
-    return (
-      <div className={`adp-${page}`}>
-        <div className='ada-container'>
-          {children}
-        </div>
+  return (
+    <div className={`adp-${page}`}>
+      <div className='ada-container'>
+        {children}
       </div>
-    );
-  }
+    </div>
+  )
 }
+
+export default Layout

@@ -3,8 +3,8 @@ import * as React from 'react'
 import ReactDOM from 'react-dom'
 import $ from 'jquery'
 
-// config
-import { ROOT } from '../../../config/constants.config'
+// modules
+import { ROOT } from '../../../config/app.config'
 
 // atoms
 import { Button, Heading, Icon, Text } from '../../atoms'
@@ -15,7 +15,7 @@ export default class Lightbox extends React.Component {
     ReactDOM.unmountComponentAtNode(ROOT.lightbox)
   }
 
-  render() {
+  render () {
     const { image } = this.props
     const { src, caption } = image
 
@@ -24,16 +24,12 @@ export default class Lightbox extends React.Component {
         <div className='ada-container'>
           <figure>
             <img src={src} alt={caption} />
-            <figcaption>
-
-            </figcaption>
+            <figcaption />
             <figcaption dangerouslySetInnerHTML={{ __html: caption }} />
           </figure>
         </div>
         <div className='lightbox-footer'>
-          <div className='ada-container'>
-
-          </div>
+          <div className='ada-container' />
         </div>
       </div>
     )

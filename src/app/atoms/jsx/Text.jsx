@@ -1,10 +1,18 @@
 // packages
-import * as React from 'react';
+import React from 'reactn'
 
-const Text = ({ text }) => {
-  return (
-    <p className='ada-text' dangerouslySetInnerHTML={{ __html: text }} />
-  );
-};
+/**
+ * @file Functional React component representing a paragraph element.
+ * @author Lexus Drumgold <lex@lexusdrumgold.design>
+ */
 
-export default Text;
+/**
+ * Functional component representing a paragraph.
+ *
+ * @param {object} props - properties for the component
+ * @param {*} props.children - component children
+ * @returns {HTMLParagraphElement} html paragraph element
+ */
+const Text = ({ children }) => <p className='ada-text'>{children}</p>
+
+export default Text

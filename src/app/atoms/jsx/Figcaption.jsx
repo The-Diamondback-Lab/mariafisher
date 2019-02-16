@@ -1,14 +1,19 @@
 // packages
-import * as React from 'react'
+import React from 'reactn'
 
+/**
+ * @file Functional React component representing a figcaption element.
+ * @author Lexus Drumgold <lex@lexusdrumgold.design>
+ */
 
-const Figcaption = ({ caption }) => {
-  return (
-    <figcaption
-      className='ada-figcaption'
-      dangerouslySetInnerHTML={{ __html: caption }}
-    />
-  )
-}
+/**
+ * Functional component representing a figcaption.
+ *
+ * @param {object} props - properties for the component
+ * @param {*} props.children - component children
+ * @returns {HTMLElement} html figcaption element
+ */
+const Figcaption = ({ children }) =>
+  <figcaption className='ada-figcaption'>{children}</figcaption>
 
 export default Figcaption

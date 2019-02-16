@@ -1,6 +1,3 @@
-// pages
-import { Index } from '../app/pages'
-
 // organisms
 import { Lightbox } from '../app/organisms'
 
@@ -10,7 +7,7 @@ import { Section } from '../app/templates'
 /**
  * React Router configuration.
  *
- * @file Client side routes using React Router
+ * @module routes_config
  * @author Lexus Drumgold <lex@lexusdrumgold.design>
  */
 

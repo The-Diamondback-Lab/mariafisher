@@ -1,24 +1,21 @@
 // packages
-import * as React from 'react';
+import React from 'reactn'
 
-const Icon = ({ name }) => {
-  let icon = <i className='ada-icon far fa-sync-alt fa-spin' />
+/**
+ * @file Functional React component representing a Font Awesome icon.
+ * [Reference]{@link https://fontawesome.com/icons}
+ * @author Lexus Drumgold <lex@lexusdrumgold.design>
+ */
 
-  if (name === 'menu') icon = <i className='ada-icon fas fa-bars' />;
-  if (name === 'close') icon = <i className='ada-icon fas fa-times' />;
-  if (name === 'intro') icon = <i className='ada-icon far fa-home-heart' />;
-  if (name === 'friends') icon = <i className='ada-icon far fa-users' />;
-  if (name === 'night') icon = <i className='ada-icon fal fa-cloud-moon' />;
-  if (name === 'morning') icon = <i className='ada-icon fal fa-sunrise' />;
-  if (name === 'professor') icon = <i className='ada-icon fal fa-university' />;
-  if (name === 'police') icon = <i className='ada-icon fal fa-star' />;
-  if (name === 'b&b') icon = <i className='ada-icon fal fa-building' />;
-  if (name === 'twitter') icon = <i className='ada-icon fab fa-twitter' />;
-  if (name === 'instagram') icon = <i className='ada-icon fab fa-instagram' />;
-  if (name === 'facebook') icon = <i className='ada-icon fab fa-facebook' />;
-  if (name === 'web') icon = <i className='ada-icon fal fa-globe' />;
+/**
+ * Functional component representing a Font Awesome icon.
+ *
+ * @param {object} props - properties for the component
+ * @param {boolean} props.spin - if true, icon will rotate
+ * @param {string} props.name - name of font awesome icon to render
+ * @returns {HTMLStyleElement} html i element representing an icon
+ */
+const Icon = ({ spin, weight, name }) =>
+  <i className={`ada-icon${spin ? ' fa-spin ' : ''}${weight} ${name}`} />
 
-  return icon;
-};
-
-export default Icon;
+export default Icon

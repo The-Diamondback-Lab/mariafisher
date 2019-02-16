@@ -1,7 +1,10 @@
 /**
- * JSX Templates directory
+ * @file Following an atomic design workflow, this directory manages the JSX and
+ * style for the applications templates.
+ * [Reference]{@link http://atomicdesign.bradfrost.com/chapter-2/}
+ * @author Lexus Drumgold <lex@lexusdrumgold.design>
  */
 
-import Section from './jsx/Section.jsx';
+import Section from './jsx/Section.jsx'
 
-export { Section };
+export { Section }

@@ -1,14 +1,18 @@
 // packages
+import * as Joi from 'joi'
 import URI from 'urijs'
 
 /**
  * Application constants.
  *
- * @file Constants
+ * @module app_config
  * @author Lexus Drumgold <lex@lexusdrumgold.design>
  */
 
-//  singletons
+// package references
+const JOI = Joi
+
+// browser
 const LOCAL_STORAGE = window.localStorage
 const WINDOW_LOCATION = window.location.href
 const WINDOW_PATH = URI.parse(WINDOW_LOCATION).path
@@ -31,8 +35,6 @@ const BREAKPOINTS = {
   xlarge: 1440
 }
 
-const LANDING_IMAGE_URL = 'https://firebasestorage.googleapis.com/v0/b/terpbase.appspot.com/o/assets%2Fimages%2Flanding.jpg?alt=media&token=e9dc68c0-370d-4119-816e-e749b3d7bfd7'
-
 export {
-  LOCAL_STORAGE, WINDOW_LOCATION, WINDOW_PATH, INTRODUCTION, ROOT, BREAKPOINTS, LANDING_IMAGE_URL
+  JOI, LOCAL_STORAGE, WINDOW_LOCATION, WINDOW_PATH, INTRODUCTION, ROOT, BREAKPOINTS
 }

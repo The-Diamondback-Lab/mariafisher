@@ -1,15 +1,17 @@
+/* eslint-disable camelcase */
+
 // packages
-import * as React from 'react'
+import React from 'reactn'
 import $ from 'jquery'
 
-// config
-import { INTRODUCTION } from '../../../config/constants.config'
+// modules
+import { INTRODUCTION } from '../../../config/app.config'
 
 // atoms
 import { Heading, Text } from '../../atoms'
 
 export default class Section extends React.Component {
-  async componentDidMount() {
+  async componentDidMount () {
     const { name, section_id } = this.props
 
     // set window title
@@ -19,14 +21,14 @@ export default class Section extends React.Component {
     $('#app').addClass(section_id)
   }
 
-  componentWillUnmount() {
+  componentWillUnmount () {
     const { section_id } = this.props
 
     // remove class that adds section specific image background
     $('#app').removeClass(section_id)
   }
 
-  render() {
+  render () {
     const { name, section_id } = this.props
 
     return (
