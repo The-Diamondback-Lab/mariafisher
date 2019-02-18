@@ -39,9 +39,6 @@ export default class Section extends React.Component {
 
     if (!content) window.location.href = DEV_MODE ? '/404.html' : '/404'
 
-    const { slug, title } = content
-    // document.title = slug === '/i' ? title : `${title} - Fisher: 1 Year Later`
-
     content.section_id = section_id
     content.graphs = (typeof content.graphs === 'string')
       ? content.graphs.split('\n\n') : content.graphs
