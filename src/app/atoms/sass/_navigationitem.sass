@@ -1,5 +1,7 @@
 // ATOMS/JSX/NAVIGATIONITEM STYLES
 
-@import abstracts/abstracts
-
 .ada-navigation-item
+  +flex(row, center, center)
+  +set-bkg-color-and-hover($accent)
+
+  @extend %ada-button

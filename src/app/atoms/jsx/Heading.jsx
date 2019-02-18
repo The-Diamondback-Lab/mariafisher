@@ -14,18 +14,47 @@ import * as React from 'react'
  * @param {*} props.children - component children
  * @returns {HTMLHeadingElement} html heading element
  */
-const Heading = ({ size, children }) => {
+const Heading = ({ heading, size, children }) => {
   const CLASS_NAME = 'ada-heading'
 
-  let heading = <h1 className={CLASS_NAME}>{children}</h1>
+  let element
 
-  if (size === 2) heading = <h2 className={CLASS_NAME}>{children}</h2>
-  if (size === 3) heading = <h3 className={CLASS_NAME}>{children}</h3>
-  if (size === 4) heading = <h4 className={CLASS_NAME}>{children}</h4>
-  if (size === 5) heading = <h5 className={CLASS_NAME}>{children}</h5>
-  if (size === 6) heading = <h6 className={CLASS_NAME}>{children}</h6>
+  if (heading) {
+    if (size === 2) {
+      element = <h2
+        className={CLASS_NAME} dangerouslySetInnerHTML={{ __html: heading }}
+      />
+    } else if (size === 3) {
+      element = <h3
+        className={CLASS_NAME} dangerouslySetInnerHTML={{ __html: heading }}
+      />
+    } else if (size === 4) {
+      element = <h4
+        className={CLASS_NAME} dangerouslySetInnerHTML={{ __html: heading }}
+      />
+    } else if (size === 5) {
+      element = <h5
+        className={CLASS_NAME} dangerouslySetInnerHTML={{ __html: heading }}
+      />
+    } else if (size === 6) {
+      element = <h6
+        className={CLASS_NAME} dangerouslySetInnerHTML={{ __html: heading }}
+      />
+    } else {
+      element = <h1
+        className={CLASS_NAME} dangerouslySetInnerHTML={{ __html: heading }}
+      />
+    }
+  } else {
+    element = <h1 className={CLASS_NAME}>{children}</h1>
 
-  return heading
+    if (size === 2) element = <h2 className={CLASS_NAME}>{children}</h2>
+    if (size === 3) element = <h3 className={CLASS_NAME}>{children}</h3>
+    if (size === 4) element = <h4 className={CLASS_NAME}>{children}</h4>
+    if (size === 5) element = <h5 className={CLASS_NAME}>{children}</h5>
+    if (size === 6) element = <h6 className={CLASS_NAME}>{children}</h6>
+  }
+  return element
 }
 
 export default Heading

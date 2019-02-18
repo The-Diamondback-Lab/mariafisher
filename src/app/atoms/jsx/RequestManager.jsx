@@ -17,13 +17,7 @@ import Loading from './Loading.jsx'
  * @returns {React.Component} Loading component or props.children
  */
 const RequestManager = ({ requesting, children }) => {
-  return (
-    <div className='ada-container'>
-      {requesting ? <Loading /> : children}
-    </div>
-  )
-  // if (requesting) return <Loading />
-  // return children
+  return (!requesting && children != null) ? children : <Loading />
 }
 
 export default RequestManager

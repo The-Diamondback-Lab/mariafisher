@@ -14,6 +14,11 @@ import { ROOT } from '../../../config/app.config'
  * @author Lexus Drumgold <lex@lexusdrumgold.design>
  */
 export default class Lightbox extends React.Component {
+  componentDidMount = () => {
+    const { name } = this.props
+    document.title = name
+  }
+
   /**
    * Closes the lightbox.
    *

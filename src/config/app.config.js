@@ -13,6 +13,7 @@ import URI from 'urijs'
 const JOI = Joi
 
 // browser
+const DEV_MODE = process.env.NODE_ENV === 'development'
 const LOCAL_STORAGE = window.localStorage
 const WINDOW_LOCATION = window.location.href
 const WINDOW_PATH = URI.parse(WINDOW_LOCATION).path
@@ -36,5 +37,5 @@ const BREAKPOINTS = {
 }
 
 export {
-  JOI, LOCAL_STORAGE, WINDOW_LOCATION, WINDOW_PATH, INTRODUCTION, ROOT, BREAKPOINTS
+  JOI, DEV_MODE, LOCAL_STORAGE, WINDOW_LOCATION, WINDOW_PATH, INTRODUCTION, ROOT, BREAKPOINTS
 }

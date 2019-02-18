@@ -13,6 +13,18 @@ import * as React from 'react'
  * @param {*} props.children - component children
  * @returns {HTMLParagraphElement} html paragraph element
  */
-const Text = ({ children }) => <p className='ada-text'>{children}</p>
+const Text = ({ text, children }) => {
+  const CLASS_NAME = 'ada-text'
+
+  if (text) {
+    return (
+      <p
+        className={CLASS_NAME}
+        dangerouslySetInnerHTML={{ __html: text }}
+      />
+    )
+  }
+  return <p className={CLASS_NAME}>{children}</p>
+}
 
 export default Text

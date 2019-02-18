@@ -1,3 +1,18 @@
 // ORGANISMS/JSX/FOOTER STYLES
 
 .ado-footer
+  +respond-to(schmedium)
+    align-self: center
+    padding-bottom: px-to-em(22.5)
+    width: 10vw
+
+  bottom: 0
+  padding-bottom: px-to-em(40)
+  position: fixed
+  width: 100vw
+  z-index: 15
+
+  > .ada-container
+    +flex(row, flex-end)
+    +respond-to(schmedium)
+      justify-content: center !important

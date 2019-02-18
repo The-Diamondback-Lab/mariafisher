@@ -1,6 +1,21 @@
 /* HELPER CLASSES - BASE/HELPERS
 
-.ada-container
+%ada-container
   margin: 0 auto
   max-width: $max-width
   width: 100%
+
+.ada-container
+  @extend %ada-container
+
+%lightbox
+  height: 100vh
+  opacity: 0
+  position: absolute
+  width: 100vw
+  z-index: -1
+
+  &.open
+    background-color: $dark
+    opacity: 1
+    z-index: 10

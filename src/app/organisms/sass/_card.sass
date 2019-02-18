@@ -1,0 +1,100 @@
+// ORGANISMS/JSX/CARD STYLES
+
+%card-container
+  height: 100%
+  max-width: 92.5%
+
+.ado-card
+  +flex(column)
+  +respond-to(xlarge)
+    width: 50%
+
+
+  +respond-to(large)
+    width: 60%
+
+
+  +respond-to(medium)
+    width: 70%
+
+
+  +respond-to(schmedium)
+    padding-top: px-to-em(0)
+    width: 100%
+
+
+  background-color: rgba($dark, 0.725)
+  height: 100%
+  position: relative
+  width: 70%
+
+  > .ada-container
+    +flex(column)
+    +respond-to(schmedium)
+      max-width: 100%
+
+
+    @extend %card-container
+
+    overflow-y: scroll
+
+    &::-webkit-scrollbar
+      background-color: $accent
+      border-radius: px-to-em(32)
+      width: px-to-em(5)
+
+    > .ada-text
+      margin-top: 0
+      width: 98%
+
+      &:last-of-type
+        padding-bottom: px-to-em(5)
+
+.card-header,
+.card-footer
+  padding: px-to-em(30) 0
+  width: 100%
+
+  > .ada-container
+    +flex(row, center, space-between)
+
+    height: 100%
+    max-width: 92.5%
+
+.card-header
+  +respond-to(schmedium)
+    background-color: $dark
+    padding: 0 0 px-to-em(20) 0
+
+    > .ada-container
+      max-width: 100%
+
+
+.card-footer
+  background-color: $dark
+  border-top: px-to-em(3) solid $accent
+  bottom: 0
+  margin-top: px-to-em(15)
+  
+  > .ada-container
+    a
+      +flex(row, center, space-between)
+
+      color: $light
+      font:
+        size: px-to-em(12)
+        weight: 500
+      text-transform: uppercase
+
+      > .ada-icon
+        font-size: px-to-em(22.5)
+
+        &:first-of-type
+          margin-right: px-to-em(5)
+
+        &:last-of-type
+          margin-left: px-to-em(5)
+
+#section01
+  .ada-heading
+    font-weight: 300

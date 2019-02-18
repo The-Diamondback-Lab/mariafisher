@@ -9,25 +9,24 @@
 @import pages/pages
 
 // app styles
-%right-aligned
-  +flex(row, flex-start, flex-end)
-
 #app
+  +flex(column)
+  +transition(all, .375s)
   +respond-to(schmedium)
-    background:
-      color: $dark
-      image: none !important
+    background-image: none !important
 
-
-  background-color: $accent
+  background-color: $dark
   height: 100vh
-  padding: px-to-em(40) 0
   width: 100vw
 
   > .ada-container
-    +flex(row)
+    display: flex
+    flex-direction: row
 
     height: 100%
+
+  &.loading
+    +flex(row, center, center)
 
   &.section01
     +set-bkg-img('section01.svg', center top)
@@ -35,26 +34,17 @@
   &.section02
     +set-bkg-img('section02.svg')
 
-    > .ada-container
-      justify-content: flex-end
-
   &.section03
     +set-bkg-img('section03.svg')
 
   &.section04
     +set-bkg-img('section04.svg')
 
-    > .ada-container
-      justify-content: flex-end
-
   &.section05
     +set-bkg-img('section05.svg')
 
   &.section06
     +set-bkg-img('section06.svg')
-
-    > .ada-container
-      justify-content: flex-end
 
   &.section07
     +set-bkg-img('section07.svg')

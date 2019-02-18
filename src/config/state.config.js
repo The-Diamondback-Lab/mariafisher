@@ -1,6 +1,10 @@
 // packages
 import { addReducer } from 'reactn'
 
+// modules
+import { BREAKPOINTS } from './app.config'
+import { responsive } from '../utilities/ui.utilities'
+
 /**
  * Manages the initial state of the application via Reactn, as well adds
  * reducers for handling state changes.
@@ -13,7 +17,8 @@ import { addReducer } from 'reactn'
 const INITIAL_STATE = {
   content: new Map(),
   navigation: null,
-  mobile: false,
+  menu: false,
+  mobile: responsive(BREAKPOINTS.schmedium, 'less_eq'),
   requesting: true,
   scrolled: 0
 }

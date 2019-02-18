@@ -14,7 +14,8 @@ const FIREBASE_CONFIG = {
   apiKey: 'AIzaSyCeP6oTMNEyOoB7MWD0xC18gvJQcKMlyQY',
   authDomain: 'fisher1yearlater.firebaseapp.com',
   databaseURL: 'https://fisher1yearlater.firebaseio.com',
-  projectId: 'fisher1yearlater'
+  projectId: 'fisher1yearlater',
+  storageBucket: 'fisher1yearlater.appspot.com'
 }
 
 // intialize firebase appplication

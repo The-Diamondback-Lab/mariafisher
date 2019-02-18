@@ -1,6 +1,7 @@
 // packages
 import * as React from 'react'
 import { NavLink } from 'react-router-dom'
+import $ from 'jquery'
 
 // atoms
 import Icon from './Icon.jsx'
@@ -22,11 +23,14 @@ export default class NavigationItem extends React.Component {
    * @returns {React.Component} application component
    */
   render = () => {
-    const { path, icon } = this.props
+    const { path, icon, text } = this.props
 
     return (
-      <NavLink to={path} className='ada-navigation-item'>
-        <Icon name={icon} />
+      <NavLink
+        to={path} className='ada-navigation-item'
+        onClick={() => $('.adm-navigation').removeClass('open')}
+      >
+        {text || <Icon name={icon} />}
       </NavLink>
     )
   }

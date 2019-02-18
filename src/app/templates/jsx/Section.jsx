@@ -2,25 +2,29 @@
 
 // packages
 import React from 'reactn'
+import { Route } from 'react-router-dom'
 import $ from 'jquery'
 
 // modules
-import { INTRODUCTION, WINDOW_PATH } from '../../../config/app.config'
+import { DEV_MODE } from '../../../config/app.config'
 
 // atoms
-import { Heading } from '../../atoms'
+import { Container } from '../../atoms'
+
+// organisms
+import { Card, Lightbox } from '../../organisms'
 
 /**
- * Class representing the application.
+ * Class representing a story section.
  *
- * @class App
+ * @class Section
  * @hideconstructor
  * @author Lexus Drumgold <lex@lexusdrumgold.design>
  */
 export default class Section extends React.Component {
   constructor (props) {
     super(props)
-    this.state = { data: null, requesting: true }
+    this.state = { data: null, loading: true }
   }
 
   /**
@@ -29,27 +33,25 @@ export default class Section extends React.Component {
    * specific background, as defined in the stylesheet.
    *
    * @async
-   * @returns {boolean} true if application has mounted
    */
   componentDidMount = async () => {
-    const DEV_MODE = process.env.NODE_ENV === 'development'
-    const { content } = this.global
-    const { section_id } = this.props
+    const { content, section_id, prev, next } = this.props
 
-    const DATA = content.get(WINDOW_PATH)
+    if (!content) window.location.href = DEV_MODE ? '/404.html' : '/404'
 
-    if (!DATA) window.location.href = DEV_MODE ? '/404.html' : '/404'
+    const { slug, title } = content
+    // document.title = slug === '/i' ? title : `${title} - Fisher: 1 Year Later`
 
-    // set window title
-    const { title } = DATA
-    let doc_title = INTRODUCTION ? title : `${title} - Fisher: 1 Year Later`
+    content.section_id = section_id
+    content.graphs = (typeof content.graphs === 'string')
+      ? content.graphs.split('\n\n') : content.graphs
+    content.prev = prev
+    content.next = next
 
-    document.title = doc_title
-
-    // add class to update section specific image background
     $('#app').addClass(section_id)
 
-    return true
+    // set state
+    this.setState({ data: content, loading: false })
   }
 
   /**
@@ -62,7 +64,6 @@ export default class Section extends React.Component {
   componentWillUnmount = () => {
     const { section_id } = this.props
 
-    // remove class that adds section specific image background
     $('#app').removeClass(section_id)
   }
 
@@ -72,20 +73,32 @@ export default class Section extends React.Component {
    * @returns {HTMLElement} html section element
    */
   render = () => {
-    const { name, section_id } = this.props
+    const { mobile } = this.global
+    const { data, loading } = this.state
+    const { section_id, routes } = this.props
+
+    if (loading && !data) return null
+
+    let cover_image = data.images[0]
+    delete cover_image.source
+
+    let hide_image = { opacity: 0 }
+    let show_image = { opacity: 1 }
+
+    cover_image.style = loading || mobile ? hide_image : show_image
+
+    let id = parseInt(section_id.replace('section0', ''))
 
     return (
-      <section className='adt-section' id={section_id}>
-        <div className='ada-container'>
-          {
-            INTRODUCTION
-              ? <Heading>
-                Fisher: <span>1 Year Later</span>
-              </Heading>
-              : <Heading heading={name} />
-          }
-        </div>
-      </section>
+      <div className='adt-section' id={section_id}>
+        <Route exact {...routes[0]} component={Lightbox} />
+        <Container style={{
+          justifyContent: `flex-${id % 2 === 0 ? 'end' : 'start'}`
+        }}
+        >
+          <Card data={data} />
+        </Container>
+      </div>
     )
   }
 }

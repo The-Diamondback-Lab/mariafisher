@@ -2,20 +2,44 @@
 import * as React from 'react'
 
 /**
- * @file Functional React component representing an image.
+ * Class representing an image.
+ *
+ * @class Image
+ * @hideconstructor
+ * [Reference]{@link https://www.w3schools.com/tags/tag_img.asp}
  * @author Lexus Drumgold <lex@lexusdrumgold.design>
  */
+export default class Image extends React.Component {
+  static CLASS_NAME = 'ada-image'
 
-/**
- * Functional component representing an image.
- *
- * @param {object} props - properties for the component
- * @param {string} props.src - image source
- * @param {string} props.alt - image description
- * @returns {HTMLElement} html image element
- */
-const Image = ({ src, alt }) => {
-  return <img className='ada-image' src={alt} alt={alt} />
+  state = { loading: true }
+  ref = React.createRef()
+
+  componentDidMount = async () => {
+
+  }
+
+  static getDerivedStateFromProps = (props, state) => {
+
+  }
+
+  /**
+   * Renders an image.
+   *
+   * @returns {HTMLElement} html image element
+   */
+  render = () => {
+    const { CLASS_NAME } = Image
+    const {
+      id, style, src, srcset, alt, hidden
+    } = this.props
+
+    return (
+      <img
+        id={id} className={CLASS_NAME} style={style}
+        src={src} srcSet={srcset} alt={alt}
+        hidden={hidden}
+      />
+    )
+  }
 }
-
-export default Image

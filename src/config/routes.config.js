@@ -26,7 +26,7 @@ const SECTION_02 = {
   component: Section,
   name: 'II',
   section_id: 'section02',
-  prev: '/',
+  prev: '/i',
   next: '/iii'
 }
 

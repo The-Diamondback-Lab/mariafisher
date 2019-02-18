@@ -1,0 +1,24 @@
+// ATOMS/JSX/BUTTON STYLES
+
+$active: px-to-em(5) solid $light
+
+%ada-button
+  +set-bkg-color-and-hover($accent)
+  +hocus
+    border: $active
+  +respond-to(small)
+    height: px-to-em(45)
+    width: px-to-em(45)
+
+  border-radius: 50%
+  color: $light
+  font-size: px-to-em(12)
+  height: px-to-em(50)
+  text-align: center
+  width: px-to-em(50)
+
+  &.active
+    border: $active
+
+.ada-button
+  @extend %ada-button

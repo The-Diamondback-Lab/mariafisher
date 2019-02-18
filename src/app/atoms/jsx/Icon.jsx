@@ -16,6 +16,8 @@ import * as React from 'react'
  * @returns {HTMLStyleElement} html i element representing an icon
  */
 const Icon = ({ spin, weight, name }) =>
-  <i className={`ada-icon${spin ? ' fa-spin ' : ''}${weight} ${name}`} />
+  <i
+    className={`ada-icon${spin ? ' fa-spin ' : ''} ${weight || 'far'} ${name}`}
+  />
 
 export default Icon

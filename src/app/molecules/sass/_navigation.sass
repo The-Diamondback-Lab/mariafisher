@@ -1,6 +1,17 @@
 // MOLECULES/JSX/NAVIGATION STYLES
 
 .adm-navigation
+  +flex(row, center, center)
+  +transition(all, .375s)
+
+  @extend %lightbox
+
+  > .ada-container
+    +flex(row, center, center)
+  
+.links
   +flex(row, center, space-between)
-  +respond-to(schmedium)
-    margin-top: px-to-em(5)
+  +respond-to(small)
+    width: 100%
+  
+  width: 60%

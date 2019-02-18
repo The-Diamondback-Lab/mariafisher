@@ -1,31 +1,21 @@
 // TEMPLATES/JSX/SECTION STYLES
 
 .adt-section
-  +flex(column)
-  +respond-to(xlarge)
-    width: 50%
+  height: 100%
+  position: relative
+  width: 100%
 
-
-  +respond-to(large)
-    width: 60%
-
-
-  +respond-to(medium)
-    width: 70%
-
-
-  +respond-to(schmedium)
-    background-color: rgba($light, 0.25)
+  > .ada-image
+    position: absolute
     width: 100%
-
-
-  background-color: rgba($dark, 0.8)
-  padding-top: px-to-em(30)
-  width: 70%
+    z-index: 0
 
   > .ada-container
-    max-width: 92.5%
+    +flex(row)
+    +respond-to(schmedium)
+      padding-bottom: 0
 
-#section01
-  .ada-heading
-    font-weight: 300
+    height: 100%
+    padding: px-to-em(40) 0
+    position: relative
+    z-index: 1
