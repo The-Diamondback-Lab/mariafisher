@@ -53,7 +53,7 @@ Follow the steps below to get your development enviroment set up.
 1.  Pull the repo. Open the terminal and and run the following:
 
     ```
-    git clone https://github.com/The-Diamondback-Lab/fisher1yearlater.git
+    git clone https://github.com/The-Diamondback-Lab/mariafisher.git
     ```
 
 2.  After cloning the repo, open the project. Run the following command:
@@ -68,7 +68,7 @@ Follow the steps below to get your development enviroment set up.
 
 #### Development
 Run `npm run dev` to begin making changes. This will watch your `*.js(x)` and
-`*.sass` files. As you develop, Create React App will automatically reload and
+`*.sass` files under `src`. As you develop, Create React App will automatically reload and
 deploy your changes locally.
 - **Note:** If react-scripts fails to run the development server with the error
   "custom keyword definition is invalid: data.errors should be boolean", please
@@ -104,7 +104,7 @@ If you're ready to have your changes reviewed, make sure your code is well
 documented, and create a branch for your changes. Make sure to name the branch
 appropriately, prefixing it with feature-, issue-, hotfix-, or release-. To
 do this, run the following in your terminal:  
-1. `git checkout -b <BRANCH_NAME> development`
+1. `git checkout -b <BRANCH_NAME>`
 2. `git commit -am "<DESCRIPTIVE_COMMIT_MESSAGE>"`
 3. `git push`
 4. `git checkout development`
