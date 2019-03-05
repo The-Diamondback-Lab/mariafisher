@@ -63,16 +63,7 @@ const SECTION_06 = {
   name: 'VI',
   section_id: 'section06',
   prev: '/v',
-  next: '/vii'
-}
-
-const SECTION_07 = {
-  path: '/vii',
-  component: Section,
-  name: 'VII',
-  section_id: 'section07',
-  prev: '/vi',
-  next: '/i'
+  next: null
 }
 
 const GALLERY_ROUTE = {
@@ -83,7 +74,7 @@ const GALLERY_ROUTE = {
 
 // route arrays
 const ROUTES_ARR = [
-  SECTION_01, SECTION_02, SECTION_03, SECTION_04, SECTION_05, SECTION_06, SECTION_07, GALLERY_ROUTE
+  SECTION_01, SECTION_02, SECTION_03, SECTION_04, SECTION_05, SECTION_06, GALLERY_ROUTE
 ]
 
 export { ROUTES_ARR }

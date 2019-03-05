@@ -98,7 +98,7 @@ export const get_navigation = async (content, name) => {
         item.section_id = `section0${id}`
         item.routes = [route(next)]
         item.prev = id === 1 ? null : `/${numeral(id - 1)}`
-        item.next = id === 7 ? '/i' : `/${numeral(id + 1)}`
+        item.next = id === 6 ? null : `/${numeral(id + 1)}`
         item.content = content.get(`${item.path}`)
         item.gallery = id === 1 ? null : `${item.path}?gallery`
       } else {
