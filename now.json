@@ -7,16 +7,21 @@
   "builds": [
     {
       "src": "package.json",
-      "use": "@now/static-build",
-      "config": {
-        "distDir": "build"
-      }
+      "use": "@now/static-build"
     }
   ],
   "regions": [
     "iad1"
   ],
   "routes": [
+    {
+      "src": "^/static/(.*)",
+      "dest": "/static/$1"
+    },
+    {
+      "src": ".*",
+      "dest": "/index.html"
+    },
     {
       "src": "/facebook",
       "status": 301,

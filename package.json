@@ -18,7 +18,7 @@
     "postdev": "rm -rf .env",
     "prebuild": "rm -rf build/",
     "build": "react-scripts build",
-    "now-build": "npm run build",
+    "now-build": "npm run build && mv build dist",
     "prestart": "NODE_ENV=production npm run lint && npm run build",
     "start": "serve ./build",
     "poststart": "rm -rf .env"
