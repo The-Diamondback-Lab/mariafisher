@@ -1,0 +1,51 @@
+// -----------------------------------------------------------------------------
+// Styles entry point
+// @author Lexus Drumgold
+// -----------------------------------------------------------------------------
+
+// Charset
+@charset 'utf-8'
+
+// Directories
+@import abstracts/abstracts
+@import base/base
+@import components/components
+
+// Styles
+
+#root
+  +flex(column)
+  +transition(all, .375s)
+  +respond-to(schmedium)
+    background-image: none !important
+
+
+  background-color: $dark
+  height: 100vh
+  width: 100vw
+
+  > .ada-container
+    display: flex
+    flex-direction: row
+    height: 100%
+
+  &.loading
+    +flex(row, center, center)
+
+  &.section01
+    +set-bkg-img('section01.jpg', center top)
+
+  &.section02
+    +set-bkg-img('section02.jpg')
+
+  &.section03
+    +set-bkg-img('section03.jpg')
+
+  &.section04
+    +set-bkg-img('section04.jpg')
+
+  &.section05
+    +set-bkg-img('section05.jpg')
+
+  &.section06
+    +set-bkg-img('section06.jpg')

@@ -1,0 +1,49 @@
+{
+  "name": "mariafisher",
+  "version": 2,
+  "public": true,
+  "alias": "mariafisher.dbknews.com",
+  "scope": "the-diamondback-lab",
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@now/static-build",
+      "config": {
+        "distDir": "build"
+      }
+    }
+  ],
+  "regions": [
+    "iad1"
+  ],
+  "routes": [
+    {
+      "src": "/facebook",
+      "status": 301,
+      "headers": {
+        "Location": "https://www.facebook.com/TheDiamondback/"
+      }
+    },
+    {
+      "src": "/online",
+      "status": 301,
+      "headers": {
+        "Location": "http://www.dbknews.com/"
+      }
+    },
+    {
+      "src": "/repo",
+      "status": 301,
+      "headers": {
+        "Location": "https://github.com/The-Diamondback-Lab/mariafisher"
+      }
+    },
+    {
+      "src": "/twitter",
+      "status": 301,
+      "headers": {
+        "Location": "https://twitter.com/thedbk"
+      }
+    }
+  ]
+}

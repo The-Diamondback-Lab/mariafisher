@@ -1,7 +1,3 @@
-// packages
-import * as Joi from 'joi'
-import URI from 'urijs'
-
 /**
  * Application constants.
  *
@@ -9,14 +5,11 @@ import URI from 'urijs'
  * @author Lexus Drumgold <lex@lexusdrumgold.design>
  */
 
-// package references
-const JOI = Joi
-
 // browser
 const DEV_MODE = process.env.NODE_ENV === 'development'
 const LOCAL_STORAGE = window.localStorage
 const WINDOW_LOCATION = window.location.href
-const WINDOW_PATH = URI.parse(WINDOW_LOCATION).path
+const WINDOW_PATH = window.location.pathname
 const INTRODUCTION = WINDOW_PATH === '/' || WINDOW_PATH === '/i'
 
 // html elements
@@ -37,5 +30,5 @@ const BREAKPOINTS = {
 }
 
 export {
-  JOI, DEV_MODE, LOCAL_STORAGE, WINDOW_LOCATION, WINDOW_PATH, INTRODUCTION, ROOT, BREAKPOINTS
+  DEV_MODE, LOCAL_STORAGE, WINDOW_LOCATION, WINDOW_PATH, INTRODUCTION, ROOT, BREAKPOINTS
 }

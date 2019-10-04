@@ -1,70 +1,77 @@
 {
-  "name": "fisher-one-year-later",
-  "version": "1.0.0",
+  "name": "@thedbklab/mariafisher",
+  "version": "2.0.0",
   "description": "Dan Fisher was admittedly a bit skeptical of his daughter Maria’s dream to open a performing arts high school after she graduated from the University of Maryland. But in the year since her death, Fisher has taken his daughter’s dream into his own hands. In mid-February, the Fishers will open The Avenue Guest House and Gallery in Lititz, Pennsylvania, a bed and breakfast that  will double as a performance venue for local artists. Since the family purchased it in September, it’s become something of a sanctuary for them, particularly as the investigation into Maria’s death has yielded more questions than answers. On Oct. 1, 2017, just after 6 a.m., Maria Fisher a first semester freshman, was struck and killed by a car as she ran across Route 1. But, all these months later, her loved ones aren’t sure where she was running from.",
   "author": "Lexus Drumgold <lex@lexusdrumgold.design> (https://lexusdrumgold.design)",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/The-Diamondback-Lab/fisher-one-year-later.git"
+    "url": "git+https://github.com/The-Diamondback-Lab/mariafisher.git"
   },
   "bugs": {
-    "url": "https://github.com/The-Diamondback-Lab/fisher-one-year-later/issues"
+    "url": "https://github.com/The-Diamondback-Lab/mariafisher/issues"
   },
   "scripts": {
-    "build-css": "node-sass-chokidar src/app/ -o src/app/",
-    "watch-css": "npm run build-css && node-sass-chokidar src/app/ -o src/app/ --watch --recursive",
-    "start-js": "react-scripts start",
-    "build-js": "react-scripts build",
-    "dev": "npm-run-all -p watch-css start-js",
-    "build": "rm -rf build && npm-run-all build-css build-js",
-    "test": "standard src/ --fix && react-scripts test",
-    "stage": "npm run build && npm run test",
-    "serve-staging": "npm run build && firebase serve --project fisher1yearlater --only hosting:staging",
-    "serve-production": "npm run build && firebase serve --project fisher1yearlater --only hosting:production",
-    "deploy-staging": "firebase deploy --project fisher1yearlater --only hosting:staging",
-    "deploy-production": "firebase deploy --project fisher1yearlater --only hosting:production",
-    "eject": "react-scripts eject"
+    "preinstall": "rm -rf node_modules && npm run prebuild",
+    "lint": "eslint ./src/*.js ./src/**/*.js ./src/components/**/*.jsx --fix",
+    "predev": "NODE_ENV=development cp .env.development .env",
+    "dev": "react-scripts start",
+    "postdev": "rm -rf .env",
+    "prebuild": "rm -rf build/",
+    "build": "react-scripts build",
+    "now-build": "npm run build",
+    "prestart": "NODE_ENV=production npm run lint && npm run build",
+    "start": "serve ./build",
+    "poststart": "rm -rf .env"
   },
   "dependencies": {
-    "firebase": "^5.8.1",
-    "flamelink": "^0.19.12",
-    "joi": "^14.3.1",
-    "jquery": "^3.3.1",
-    "react": "^16.8.2",
-    "react-dom": "^16.7.0",
-    "react-router-dom": "^4.3.1",
+    "@feathersjs/errors": "^4.3.4",
+    "jquery": "^3.4.1",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-ga": "^2.6.0",
+    "react-router-dom": "^5.0.1",
     "react-router-ga": "^1.0.0",
     "react-router-hash-link": "^1.2.1",
-    "react-scripts": "^2.1.3",
-    "reactn": "^0.2.2",
-    "urijs": "^1.19.1"
+    "react-scripts": "3.1.1",
+    "showdown": "^1.9.0"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.3.1",
-    "eslint-plugin-react": "^7.11.1",
-    "isomorphic-style-loader": "^4.0.0",
-    "node-sass-chokidar": "^1.3.3",
-    "npm-run-all": "^4.1.3",
-    "semistandard": "^13.0.1",
-    "standard": "^12.0.1"
+    "@babel/core": "^7.5.5",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/plugin-proposal-export-default-from": "^7.5.2",
+    "@babel/plugin-proposal-export-namespace-from": "^7.2.0",
+    "@babel/plugin-proposal-throw-expressions": "^7.2.0",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-react": "^7.0.0",
+    "babel-eslint": "^11.0.0-beta.0",
+    "eslint": "^6.2.1",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-config-standard-jsx": "^7.0.0",
+    "eslint-config-standard-react": "^9.0.0",
+    "eslint-plugin-import": "^2.17.1",
+    "eslint-plugin-jest": "^22.5.1",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-node": "^8.0.1",
+    "eslint-plugin-promise": "^4.1.1",
+    "eslint-plugin-react": "^7.14.2",
+    "eslint-plugin-standard": "^4.0.0",
+    "node-sass": "^4.12.0",
+    "now": "^16.3.0",
+    "serve": "^11.1.0"
   },
-  "standard": {
-    "parser": "babel-eslint",
-    "parserOptions": {
-      "ecmaVersion": 6,
-      "sourceType": "module"
-    },
-    "rules": {
-      "camelcase": 0
-    },
-    "ignore": [
-      "node_modules/**"
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
     ]
   },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ]
+  "engines": {
+    "node": "8"
+  }
 }

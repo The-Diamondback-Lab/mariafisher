@@ -1,29 +1,41 @@
-// packages
-import React, { setGlobal } from 'reactn'
+// Packages
+import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 
-// modules
-import { ROOT } from './config/app.config'
-import { INITIAL_STATE } from './config/state.config.js'
-import * as pwa from './config/pwa.config'
+// Content
+import content from './api/content.json'
 
-// application
-import App from './app/App.jsx'
+// Utility functions
+import utils from './utils'
+
+// React application
+import App from './components/App'
+
+// Service worker
+import * as sw from './config/sw.config'
+
+// Compiled Sass stylesheet
+import './sass/app.sass'
 
 /**
- * @file Entry point. Sets initial state and renders React components.
+ * @file Application entry point
  * @author Lexus Drumgold <lex@lexusdrumgold.design>
  */
 
-// set global state
-setGlobal(INITIAL_STATE)
-
-// render application
-ReactDOM.render(<App />, ROOT.app)
-
-/*
- * If you want your app to work offline and load faster, you can change
- * unregister() to register() below. Note this comes with some pitfalls. Learn
- * more about service workers: http://bit.ly/CRA-PWA
+/**
+ * Component representing the application component, @see @class App, with the
+ * api content and utility functions passed as props.
+ *
+ * @returns {<App/>}
  */
-pwa.unregister()
+const ConnectedApp = props => <App {...props} api={{ content }} utils={utils} />
+
+/* Render application */
+ReactDOM.render(<ConnectedApp />, document.getElementById('root'))
+
+/**
+ * If you want your app to work offline and load faster, you can change
+ * unregister() to register() below. Note this comes with some pitfalls.
+ * @see {@link https://bit.ly/CRA-PWA}
+ */
+sw.unregister()
