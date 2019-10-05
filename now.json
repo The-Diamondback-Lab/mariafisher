@@ -22,10 +22,6 @@
       "dest": "/static/$1"
     },
     {
-      "src": ".*",
-      "dest": "/index.html"
-    },
-    {
       "src": "/facebook",
       "status": 301,
       "headers": {
@@ -52,6 +48,10 @@
       "headers": {
         "Location": "https://twitter.com/thedbk"
       }
+    },
+    {
+      "src": ".*",
+      "dest": "/index.html"
     }
   ]
 }
