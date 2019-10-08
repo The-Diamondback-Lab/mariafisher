@@ -24,7 +24,9 @@ export default class Card extends React.Component {
     const { data } = this.props
     const { graphs, next, prev, slug, title } = data
 
-    let heading = slug === '/i' ? '<span>The Missing Hours</span>' : title
+    let heading = slug === '/i'
+      ? '<span>The Missing Hours <span><br/></span> <span>By: Christine Condon</span></span>'
+      : title
 
     let footer_container = prev
       ? { justifyContent: 'space-between' }
