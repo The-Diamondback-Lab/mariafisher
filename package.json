@@ -21,26 +21,28 @@
     "start": "serve ./build"
   },
   "dependencies": {
+    "@babel/core": "^7.7.7",
+    "@babel/plugin-proposal-class-properties": "^7.7.4",
+    "@babel/plugin-proposal-export-default-from": "^7.7.4",
+    "@babel/plugin-proposal-export-namespace-from": "^7.7.4",
+    "@babel/plugin-proposal-throw-expressions": "^7.7.4",
+    "@babel/preset-env": "^7.7.7",
+    "@babel/preset-react": "^7.7.4",
     "@feathersjs/errors": "^4.3.4",
     "cpx": "^1.5.0",
     "cross-env": "^6.0.3",
     "jquery": "^3.4.1",
+    "node-sass": "^4.13.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-ga": "^2.6.0",
     "react-router-dom": "^5.0.1",
     "react-router-ga": "^1.0.0",
     "react-router-hash-link": "^1.2.1",
-    "react-scripts": "3.1.1"
+    "react-scripts": "3.1.1",
+    "serve": "^11.3.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.5.5",
-    "@babel/plugin-proposal-class-properties": "^7.5.5",
-    "@babel/plugin-proposal-export-default-from": "^7.5.2",
-    "@babel/plugin-proposal-export-namespace-from": "^7.2.0",
-    "@babel/plugin-proposal-throw-expressions": "^7.2.0",
-    "@babel/preset-env": "^7.5.5",
-    "@babel/preset-react": "^7.0.0",
     "babel-eslint": "^11.0.0-beta.0",
     "eslint": "^6.2.1",
     "eslint-config-standard": "^12.0.0",
@@ -53,9 +55,7 @@
     "eslint-plugin-promise": "^4.1.1",
     "eslint-plugin-react": "^7.14.2",
     "eslint-plugin-standard": "^4.0.0",
-    "node-sass": "^4.12.0",
-    "rimraf": "^3.0.0",
-    "serve": "^11.1.0"
+    "rimraf": "^3.0.0"
   },
   "browserslist": {
     "production": [
