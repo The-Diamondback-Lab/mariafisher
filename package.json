@@ -11,20 +11,19 @@
     "url": "https://github.com/The-Diamondback-Lab/mariafisher/issues"
   },
   "scripts": {
-    "preinstall": "rm -rf node_modules && npm run prebuild",
     "lint": "eslint ./src/*.js ./src/**/*.js ./src/components/**/*.jsx --fix",
-    "predev": "NODE_ENV=development cp .env.development .env",
+    "predev": "cross-env NODE_ENV=development cpx .env.development .env",
     "dev": "react-scripts start",
-    "postdev": "rm -rf .env",
-    "prebuild": "rm -rf build/",
+    "postdev": "rimraf -rf .env",
+    "prebuild": "rimraf build/",
     "build": "react-scripts build",
-    "now-build": "npm run build",
-    "prestart": "NODE_ENV=production npm run lint && npm run build",
-    "start": "serve ./build",
-    "poststart": "rm -rf .env"
+    "prestart": "cross-env NODE_ENV=production npm run lint && npm run build",
+    "start": "serve ./build"
   },
   "dependencies": {
     "@feathersjs/errors": "^4.3.4",
+    "cpx": "^1.5.0",
+    "cross-env": "^6.0.3",
     "jquery": "^3.4.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
@@ -57,6 +56,7 @@
     "eslint-plugin-standard": "^4.0.0",
     "node-sass": "^4.12.0",
     "now": "^16.3.0",
+    "rimraf": "^3.0.0",
     "serve": "^11.1.0"
   },
   "browserslist": {
