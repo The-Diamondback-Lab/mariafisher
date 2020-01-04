@@ -11,21 +11,29 @@
     "url": "https://github.com/The-Diamondback-Lab/mariafisher/issues"
   },
   "scripts": {
-    "preinstall": "rm -rf node_modules && npm run prebuild",
     "lint": "eslint ./src/*.js ./src/**/*.js ./src/components/**/*.jsx --fix",
-    "predev": "NODE_ENV=development cp .env.development .env",
+    "predev": "cross-env NODE_ENV=development gulp cp --src .env.development --dest .env",
     "dev": "react-scripts start",
-    "postdev": "rm -rf .env",
-    "prebuild": "rm -rf build/",
+    "postdev": "rimraf -rf .env",
+    "prebuild": "rimraf build/ && gulp cp --src .env.development --dest .env",
     "build": "react-scripts build",
-    "now-build": "npm run build",
-    "prestart": "NODE_ENV=production npm run lint && npm run build",
-    "start": "serve ./build",
-    "poststart": "rm -rf .env"
+    "postbuild": "rimraf -rf .env",
+    "prestart": "cross-env NODE_ENV=production npm run lint && npm run build",
+    "start": "serve ./build"
   },
   "dependencies": {
+    "@babel/core": "^7.7.7",
+    "@babel/plugin-proposal-class-properties": "^7.7.4",
+    "@babel/plugin-proposal-export-default-from": "^7.7.4",
+    "@babel/plugin-proposal-export-namespace-from": "^7.7.4",
+    "@babel/plugin-proposal-throw-expressions": "^7.7.4",
+    "@babel/preset-env": "^7.7.7",
+    "@babel/preset-react": "^7.7.4",
     "@feathersjs/errors": "^4.3.4",
+    "cross-env": "^6.0.3",
+    "gulp": "^4.0.2",
     "jquery": "^3.4.1",
+    "node-sass": "^4.13.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-ga": "^2.6.0",
@@ -33,16 +41,10 @@
     "react-router-ga": "^1.0.0",
     "react-router-hash-link": "^1.2.1",
     "react-scripts": "3.1.1",
-    "showdown": "^1.9.0"
+    "serve": "^11.3.0",
+    "yargs": "^15.1.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.5.5",
-    "@babel/plugin-proposal-class-properties": "^7.5.5",
-    "@babel/plugin-proposal-export-default-from": "^7.5.2",
-    "@babel/plugin-proposal-export-namespace-from": "^7.2.0",
-    "@babel/plugin-proposal-throw-expressions": "^7.2.0",
-    "@babel/preset-env": "^7.5.5",
-    "@babel/preset-react": "^7.0.0",
     "babel-eslint": "^11.0.0-beta.0",
     "eslint": "^6.2.1",
     "eslint-config-standard": "^12.0.0",
@@ -55,9 +57,7 @@
     "eslint-plugin-promise": "^4.1.1",
     "eslint-plugin-react": "^7.14.2",
     "eslint-plugin-standard": "^4.0.0",
-    "node-sass": "^4.12.0",
-    "now": "^16.3.0",
-    "serve": "^11.1.0"
+    "rimraf": "^3.0.0"
   },
   "browserslist": {
     "production": [
